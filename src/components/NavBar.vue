@@ -22,7 +22,7 @@
       />
     </div>
     <v-spacer> </v-spacer>
-    <p>لوحة تحكم</p>
+    <p>لوحة التحكم</p>
   </setion>
 </template>
 
@@ -42,6 +42,11 @@ export default {};
   background-color: white;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
   color: #4e4a41;
+
+}
+p{
+font-size: 18px;
+color: #4e4a41;
 
 }
 p:nth-of-type(2) {
