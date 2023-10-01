@@ -5,7 +5,7 @@
       <h2>لوحة تحكم</h2>
       <img src="../assets/logo.png" alt="logo" width="50" />
     </div>
-    <hr style="border: 1px solid rgba(78, 74, 65,0.2)">
+    <hr style="border: 1px solid rgba(78, 74, 65, 0.2)" />
     <div class="heading">
       <span>خلود</span>
       <img
@@ -17,8 +17,16 @@
     </div>
     <div class="container_list">
       <div class="item_list" v-for="item in groups">
-        <h3>{{ item.title }}</h3>
-        <v-icon> {{ item.action }}</v-icon>
+        <div>
+          <span v-if="item.title !== 'بدء العمل'"> 0 </span>
+          <v-icon size="28" v-if="item.title == 'بدء العمل'">
+            mdi-emoticon-excited-outline</v-icon
+          >
+        </div>
+        <div style="display: flex; flex-direction: row; column-gap: 15px">
+          <h3>{{ item.title }}</h3>
+          <v-icon> {{ item.action }}</v-icon>
+        </div>
       </div>
     </div>
   </v-navigation-drawer>
@@ -56,6 +64,7 @@ export default {
 <style scoped >
 .heading {
   margin: 20px 0;
+  justify-content: end;
 }
 img {
   border-radius: 5px;
@@ -68,13 +77,21 @@ img {
   align-items: center;
   cursor: pointer;
   width: 100%;
-  justify-content: end;
   column-gap: 15px;
   color: #4e4a41;
   transition: all 0.3s linear;
 }
-.item_list:hover{
+.item_list {
+  justify-content: space-between;
+}
+.item_list:hover {
   background-color: rgba(78, 74, 65, 0.3);
+}
+.item_list span {
+  color: white;
+  background-color: #4e4a41;
+  padding: 0px 6px;
+  border-radius: 5px;
 }
 .container_list {
   display: flex;
@@ -96,7 +113,7 @@ span {
 .main_title {
   display: flex;
   /* background-color: red; */
-  /* justify-content: space-between;
+/* justify-content: space-between;
   align-items: center;
 }
 .v-list-item__append > .v-icon {
